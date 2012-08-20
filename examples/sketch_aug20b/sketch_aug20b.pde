@@ -11,7 +11,7 @@ Location[] locations = new Location[locs.length];
 PFont font;
 
 void setup() {
-  size(400,250);
+  size(500,500);
   smooth();
   font = loadFont("Digital-7-30.vlw");
   time = new TimeLibrary(this);
@@ -19,8 +19,7 @@ void setup() {
   for(int i = 0 ; i< locs.length; i++) {
     locations[i] = new Location(time, locs[i], i*50+20); 
   }
-
-  frameRate(1);
+  frameRate(2);
 }
 
 void draw() {

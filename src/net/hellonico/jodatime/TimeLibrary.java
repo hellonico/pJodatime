@@ -62,6 +62,9 @@ public class TimeLibrary {
 		DateTime dt = new DateTime();
 	    return dt.withZone(zone);
 	}
+	public String getTimeString() {
+		return new DateTime().toString();
+	}
 	public String getTimeString(String location) {
 		DateTime time = getTime(location);
 	    DateTimeFormatter fmt = ISODateTimeFormat.dateTime();
