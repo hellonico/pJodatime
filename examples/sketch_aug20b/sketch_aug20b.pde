@@ -11,15 +11,19 @@ Location[] locations = new Location[locs.length];
 PFont font;
 
 void setup() {
-  size(500,500);
+  size(500,locs.length*60);
   smooth();
+  frameRate(1)
+  ;
   font = loadFont("Digital-7-30.vlw");
+  
   time = new TimeLibrary(this);
   // println(time.getTimezones());
+  
   for(int i = 0 ; i< locs.length; i++) {
     locations[i] = new Location(time, locs[i], i*50+20); 
   }
-  frameRate(2);
+  
 }
 
 void draw() {
