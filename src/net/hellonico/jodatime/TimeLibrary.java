@@ -32,8 +32,8 @@ import java.util.Locale;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
 
 import processing.core.PApplet;
 
@@ -53,9 +53,11 @@ public class TimeLibrary {
 	
 	PApplet myParent;
 	public final static String VERSION = "##library.prettyVersion##";
+	private DateTimeFormatter fmt;
 	
 	public TimeLibrary(PApplet theParent) {
 		myParent = theParent;
+		fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
 	}
 	public DateTime getTime(String location) {
 		DateTimeZone zone = DateTimeZone.forID(location);
@@ -63,12 +65,11 @@ public class TimeLibrary {
 	    return dt.withZone(zone);
 	}
 	public String getTimeString() {
-		return new DateTime().toString();
+		return new DateTime().toString(fmt);
 	}
 	public String getTimeString(String location) {
 		DateTime time = getTime(location);
-	    DateTimeFormatter fmt = ISODateTimeFormat.dateTime();
-	    return time.toString(fmt.withLocale(Locale.JAPAN));
+	    return time.toString(fmt);
 	}
 	public String[] getTimezones() {
 		return java.util.TimeZone.getAvailableIDs();
