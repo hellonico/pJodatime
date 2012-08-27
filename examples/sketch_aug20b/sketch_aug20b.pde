@@ -13,8 +13,7 @@ PFont font;
 void setup() {
   size(500,locs.length*60);
   smooth();
-  frameRate(1)
-  ;
+  frameRate(1);
   font = loadFont("Digital-7-30.vlw");
   
   time = new TimeLibrary(this);
